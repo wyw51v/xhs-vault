@@ -1,0 +1,14 @@
+# 你的收藏内容 —— 绝对不要提交
+data/*
+!data/.gitkeep
+out/*
+!out/.gitkeep
+logs/
+*.log
+
+# 编译产物
+tools/ocr
+__pycache__/
+*.pyc
+
+.DS_Store
