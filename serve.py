@@ -16,6 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "scraper"))
 import search as S
+from _precond import need
 
 PORT, HOST = 8899, "127.0.0.1"
 TOPK = 8              # fast 模式送给 Claude 的笔记条数
@@ -23,6 +24,7 @@ PER_NOTE = 1800       # fast 模式每条截断字数
 MODEL = "claude-sonnet-5"
 TIMEOUT_FAST, TIMEOUT_DEEP = 180, 420
 
+need(ROOT, "corpus", "（先按 README 跑完抓取与处理，再启动服务）")
 print("建索引…", file=sys.stderr)
 DOCS = S.load_docs()
 IDX = S.Index(DOCS)
