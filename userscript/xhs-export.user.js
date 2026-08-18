@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         小红书收藏夹全量导出
-// @namespace    xhs-kg
+// @namespace    xhs-vault
 // @version      1.1
 // @description  抓取小红书收藏夹全部笔记的 id / xsec_token / 标题，导出 JSON；顺带导出 cookies.json
-// @author       xhs-kg
+// @author       xhs-vault
 // @match        https://www.xiaohongshu.com/*
 // @run-at       document-start
 // @grant        none
@@ -15,7 +15,7 @@
   // ---------- 状态 ----------
   const STORE = new Map();               // note_id -> record
   const META  = { pages: 0, hasMore: null, lastCode: null, lastMsg: '', endpoints: new Set() };
-  const LSKEY = '__xhs_kg_export__';
+  const LSKEY = '__xhs_vault_export__';
   let running = false, scroller = null;
 
   // 恢复上次进度
@@ -185,9 +185,9 @@
   }
 
   function mount() {
-    if (document.getElementById('xhs-kg-panel')) return;
+    if (document.getElementById('xhs-vault-panel')) return;
     const p = document.createElement('div');
-    p.id = 'xhs-kg-panel';
+    p.id = 'xhs-vault-panel';
     p.style.cssText = 'position:fixed;top:80px;right:16px;z-index:2147483647;background:#1a1b1e;color:#e9ecef;' +
       'font:13px/1.5 -apple-system,sans-serif;padding:14px 16px;border-radius:10px;width:230px;' +
       'box-shadow:0 6px 24px rgba(0,0,0,.35)';
